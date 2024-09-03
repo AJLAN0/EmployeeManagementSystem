@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Models
 {
-    public class Report
+    public class Worker
     {
         public int Id { get; set; }
-        public string Type { get; set; } = string.Empty;
-        public int GeneratedBy { get; set; }
-        public DateTime GeneratedAt { get; set; }
-        public string ReportData { get; set; } = string.Empty;
+        public int EmployeeId { get; set; }
+        public int WorkId { get; set; }
         public User User { get; set; } = null!;
+        public Work Work { get; set; } = null!;
     }
 }
