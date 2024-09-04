@@ -1,4 +1,7 @@
+using DataAccessLayer.Data;
+using DataAccessLayer.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 
 namespace PresentationLayer.Controllers
 {
@@ -10,11 +13,12 @@ namespace PresentationLayer.Controllers
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
-
+        private readonly ApplicationDbContext _context;
         private readonly ILogger<WeatherForecastController> _logger;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ApplicationDbContext context,ILogger<WeatherForecastController> logger)
         {
+            _context = context;
             _logger = logger;
         }
 
