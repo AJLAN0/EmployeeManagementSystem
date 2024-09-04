@@ -16,6 +16,6 @@ namespace DataAccessLayer.Models
         public bool IsActive { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public DateTime LastUpdatedAt { get; set;} = DateTime.Now;
-        public Role role { get; set; } = null!;
+        public Role Role { get; set; } = null!;
     }
 }
