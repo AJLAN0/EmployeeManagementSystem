@@ -8,8 +8,8 @@ namespace DataAccessLayer.Models
 {
     public class Notification
     {
-        public int Id { get; set; }
-        public int EmployeeId { get; set; }
+        public Guid Id { get; set; }
+        public Guid EmployeeId { get; set; }
         public string Title { get; set; } = string.Empty;
         public string Content { get; set; } = string.Empty;
         public bool IsRead { get; set; }

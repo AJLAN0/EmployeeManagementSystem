@@ -45,7 +45,7 @@ namespace PresentationLayer.Controllers
         // PUT: api/Works/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutWork(int id, Work work)
+        public async Task<IActionResult> PutWork(Guid id, Work work)
         {
             if (id != work.Id)
             {
@@ -100,7 +100,7 @@ namespace PresentationLayer.Controllers
             return NoContent();
         }
 
-        private bool WorkExists(int id)
+        private bool WorkExists(Guid id)
         {
             return _context.Works.Any(e => e.Id == id);
         }
