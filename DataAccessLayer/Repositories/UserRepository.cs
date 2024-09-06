@@ -26,7 +26,7 @@ namespace DataAccessLayer.DataAccessRepositories
             await _context.SaveChangesAsync();
         }
 
-        public async Task DeleteUserAsync(int id)
+        public async Task DeleteUserAsync(Guid id)
         {
             var user = await _context.Users.FindAsync(id);
             if (user != null)

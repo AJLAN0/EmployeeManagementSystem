@@ -23,7 +23,7 @@ namespace PresentationLayer.Controllers
 
         [HttpPost("employee-register")]
         [Authorize(Roles = RolesConstent.Manager)]
-        public async Task<IActionResult> RegisterSupportTeam([FromBody] UserRegister userRegister)
+        public async Task<IActionResult> RegisterEmployee([FromBody] UserRegister userRegister)
         {
             var result = await _userService.RegisterEmployeeAsync(userRegister);
             if (!result.IsSuccess)

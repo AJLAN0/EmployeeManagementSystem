@@ -8,7 +8,7 @@ namespace DataAccessLayer.Repositories
         Task<User?> GetUserByIdAsync(Guid id);
         Task AddUserAsync(User user);
         Task UpdateUserAsync(User user);
-        Task DeleteUserAsync(int id);
+        Task DeleteUserAsync(Guid id);
         Task<ICollection<User>> GetAllUsersAsync();
     }
 }
