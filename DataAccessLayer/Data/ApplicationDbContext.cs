@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DataAccessLayer.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace DataAccessLayer.Data
@@ -22,7 +23,6 @@ namespace DataAccessLayer.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<User>()
                 .HasOne(r => r.Role)
@@ -73,6 +73,53 @@ namespace DataAccessLayer.Data
                 .HasOne(l => l.User)
                 .WithMany()
                 .HasForeignKey(k => k.EmployeeId);
+
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<Role>().HasData(
+                new Role
+                {
+                    Id = Guid.Parse("1D460004-DFDD-4C24-8F60-CB52299A4096"),
+                    RoleName = "Manager"
+                },
+                new Role
+                {
+                    Id = Guid.Parse("077FF91C-7598-416E-9AF9-1B484B85D410"),
+                    RoleName = "Employee"
+                }
+            );
+
+            modelBuilder.Entity<WorkStatuses>().HasData(
+                new WorkStatuses
+                {
+                    Id = Guid.Parse("56D9991C-ACAE-491C-B90C-513959F938D3"),
+                    StatusName = "في الانتظار"
+                },
+                new WorkStatuses
+                {
+                    Id = Guid.Parse("B15ACC43-4B04-451E-AFBB-EF09C1C8370A"),
+                    StatusName = "جاري العمل عليه"
+                },
+                new WorkStatuses
+                {
+                    Id = Guid.Parse("31E38835-8793-494F-944B-74F0853A9A38"),
+                    StatusName = "جاهز للأستلام"
+                }
+            );
+
+            var password = new PasswordHasher<User>();
+            var hashPassword = password.HashPassword(null, "Mm@7471009");
+
+            modelBuilder.Entity<User>().HasData(new User
+            {
+                Id = Guid.Parse("6FEB7AE5-BD2F-48EC-B004-FCE99CC30F8E"),
+                Username = "SNR111",
+                Email = "shopsnr111@gmail.com",
+                Password = hashPassword,
+                IsActive = true,
+                RoleId = Guid.Parse("1D460004-DFDD-4C24-8F60-CB52299A4096"),
+            });
+
         }
     }
 }

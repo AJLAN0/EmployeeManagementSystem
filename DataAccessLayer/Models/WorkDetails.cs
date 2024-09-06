@@ -9,9 +9,9 @@ namespace DataAccessLayer.Models
 {
     public class WorkDetails
     {
-        public int Id { get; set; }
-        public int WorkId { get; set; }
-        public int ProductId { get; set; }
+        public Guid Id { get; set; }
+        public Guid WorkId { get; set; }
+        public Guid ProductId { get; set; }
         public int Quantity { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public Work Work { get; set; } = null!;

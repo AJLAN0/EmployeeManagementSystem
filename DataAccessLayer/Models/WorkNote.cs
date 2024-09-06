@@ -8,9 +8,9 @@ namespace DataAccessLayer.Models
 {
     public class WorkNote
     {
-        public int Id { get; set; }
-        public int WorkId { get; set; }
-        public int EmployeeId { get; set; }
+        public Guid Id { get; set; }
+        public Guid WorkId { get; set; }
+        public Guid EmployeeId { get; set; }
         public string Content { get; set; } = string.Empty;
         public DateTime CreatedAt { get; set; } = DateTime.Now;
         public Work Work { get; set; } = null!;
